@@ -1,0 +1,18 @@
+﻿# Default ignored files
+/Library
+<<<<<<< HEAD
+=======
+Library/
+>>>>>>> 56791f68 (gitignore-2)
+/shelf/
+/workspace.xml
+# Rider ignored files
+/contentModel.xml
+/modules.xml
+/.idea.Ggame.iml
+/projectSettingsUpdater.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml

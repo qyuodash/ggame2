@@ -52,16 +52,20 @@ public class RoboCenturion : MonoBehaviour
     void Update()
     {
         
+        
         //Движение влево, вправо + ускорение
         absMoveSpeed = Mathf.Abs(rb.velocity.x);
 
         dirX = Input.GetAxisRaw("Horizontal");
 
+        //rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y); 
+       
         if (absMoveSpeed <= moveSpeed)
         {
             rb.velocity += new Vector2(dirX * accelerationSpeed, rb.velocity.y); 
         }
-
+        
+        
             
         //Прыжок
         if (Input.GetButtonDown("Jump") && IsGrounded())
@@ -74,6 +78,25 @@ public class RoboCenturion : MonoBehaviour
 
      private void FixedUpdate()
     {
+        
+        /*
+        // Движение с ускорением
+        dirX = Input.GetAxisRaw("Horizontal");
+
+        if (dirX > 0)
+        {
+        rb.AddForce(acceleration * rb.mass);
+        }
+
+        if (dirX < 0)
+        {
+        rb.AddForce(-acceleration * rb.mass);
+        }
+        */
+
+
+
+        // Анимация
         if (dirX != 0)
         {
             ChangeAnimationState(ROBO_RUN);
@@ -84,7 +107,7 @@ public class RoboCenturion : MonoBehaviour
         }
 
          //Возврат Body на место, когда не движемся
-        if ((absMoveSpeed < 0.1f) || (absMoveSpeed > -0.1f) && (dirX == 0))
+        if ((absMoveSpeed < 0.05f) || (absMoveSpeed > -0.05f) && (dirX == 0))
         {
             isDown = false;
         }
